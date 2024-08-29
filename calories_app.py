@@ -70,3 +70,6 @@ if st.button('Predict'):
         st.write(f'Estimated calories burned: {prediction[0]:.2f}')
     except Exception as e:
         st.write(f'An error occurred during prediction: {e}')
+
+
+
