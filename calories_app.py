@@ -5,7 +5,10 @@ import pandas as pd
 import requests
 import os
 
-with open(r'C:\Users\USER\OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
+
+
+file_path = os.path.join(os.path.dirname(__file__), 'pipeline.pkl')
+with open(file_path, 'rb') as f:
     pipeline_saved = pickle.load(f)
 
 # Title of the app
@@ -72,21 +75,6 @@ for filename, url in file_urls.items():
             st.success(f"{filename} downloaded successfully!")
         else:
             st.error(f"Failed to download {filename}.")
-
-import os
-
-def split_file(file_path, chunk_size):
-    with open(file_path, 'rb') as f:
-        chunk_num = 0
-        while True:
-            chunk = f.read(chunk_size)
-            if not chunk:
-                break
-            with open(f'{file_path}.{chunk_num:03}', 'wb') as chunk_file:
-                chunk_file.write(chunk)
-            chunk_num += 1
-
-split_file('large_file.pkl', 50*1024*1024)  # 50MB chunks
 
 
 
