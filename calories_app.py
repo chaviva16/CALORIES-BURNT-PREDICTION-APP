@@ -2,8 +2,10 @@ import streamlit as st
 import numpy as np
 import pickle
 import pandas as pd
+import requests
+import os
 
-with open(r'C:/Users/USER/OneDrive/Desktop/Gomycode/pipeline.pkl','rb') as f:
+with open('pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
 
 # Title of the app
@@ -37,3 +39,54 @@ if st.button('Predict'):
         st.write(f'Estimated calories burned: {prediction[0]:.2f}')
     except Exception as e:
         st.write(f'An error occurred during prediction: {e}')
+
+
+# Function to download a file from a URL
+def download_file(url, output_filename):
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open(output_filename, 'wb') as f:
+            f.write(response.content)
+        return True
+    else:
+        return False
+
+# Streamlit app layout
+st.title("Download Files from Google Drive")
+
+# Google Drive file IDs
+file_ids = {
+    "pipeline.pkl": "1S9kdM8lwRmveLURHayyAFh712AUVWOQp",
+    "calories_app.py": "1wuGnKYcMwfVDNeegcyYvxcZRgIVw9Vxw",  # Update with correct ID
+    "CALORIES BURNT PREDICTION.ipynb": "1h9RjYzDLP8DulrqAh5npOfyYkBFUAL6j"    # Update with correct ID
+}
+
+# Generate download URLs
+file_urls = {name: f"https://drive.google.com/uc?id={file_id}" for name, file_id in file_ids.items()}
+
+# Create a download button for each file
+for filename, url in file_urls.items():
+    if st.button(f"Download {filename}"):
+        success = download_file(url, filename)
+        if success:
+            st.success(f"{filename} downloaded successfully!")
+        else:
+            st.error(f"Failed to download {filename}.")
+
+import os
+
+def split_file(file_path, chunk_size):
+    with open(file_path, 'rb') as f:
+        chunk_num = 0
+        while True:
+            chunk = f.read(chunk_size)
+            if not chunk:
+                break
+            with open(f'{file_path}.{chunk_num:03}', 'wb') as chunk_file:
+                chunk_file.write(chunk)
+            chunk_num += 1
+
+split_file('large_file.pkl', 50*1024*1024)  # 50MB chunks
+
+
+
