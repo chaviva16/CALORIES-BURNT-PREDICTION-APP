@@ -5,11 +5,12 @@ import pandas as pd
 import requests
 import os
 
-
-
-file_path = os.path.join(os.path.dirname(__file__), 'pipeline.pkl')
-with open(file_path, 'rb') as f:
+with open(r'C:\Users\USER\OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
+
+   
+
+
 
 # Title of the app
 st.title('Calories Burnt Prediction App Using Machine Learning')
