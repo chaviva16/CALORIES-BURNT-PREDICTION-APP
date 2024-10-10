@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 import os
 
-with open('pipeline.pkl','rb') as f:
+with open(r'C:\Users\USER\OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
 
 # Title of the app
@@ -55,8 +55,8 @@ def download_file(url, output_filename):
 st.title("Download Files from Google Drive")
 
 # Google Drive file IDs
+
 file_ids = {
-    "pipeline.pkl": "1S9kdM8lwRmveLURHayyAFh712AUVWOQp",
     "calories_app.py": "1wuGnKYcMwfVDNeegcyYvxcZRgIVw9Vxw",  # Update with correct ID
     "CALORIES BURNT PREDICTION.ipynb": "1h9RjYzDLP8DulrqAh5npOfyYkBFUAL6j"    # Update with correct ID
 }
