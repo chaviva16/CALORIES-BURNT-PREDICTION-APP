@@ -9,11 +9,11 @@ import os
 from pathlib import Path
 
 # Define the path to your file
-file_path = Path('OneDrive\Desktop\Gomycode\pipeline.pkl')
+file_path = Path(r'OneDrive\Desktop\Gomycode\pipeline.pkl')
 
-
-with open('OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
+with open(file_path, 'rb') as f:
     pipeline_saved = pickle.load(f)
+
 
    
 
