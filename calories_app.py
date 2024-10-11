@@ -5,6 +5,13 @@ import pandas as pd
 import requests
 import os
 
+
+from pathlib import Path
+
+# Define the path to your file
+file_path = Path('OneDrive\Desktop\Gomycode\pipeline.pkl')
+
+
 with open('pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
 
