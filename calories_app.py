@@ -12,7 +12,7 @@ from pathlib import Path
 file_path = Path('OneDrive\Desktop\Gomycode\pipeline.pkl')
 
 
-with open('pipeline.pkl','rb') as f:
+with open('OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
 
    
