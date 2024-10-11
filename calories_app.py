@@ -5,7 +5,7 @@ import pandas as pd
 import requests
 import os
 
-with open(r'C:\Users\USER\OneDrive\Desktop\Gomycode\pipeline.pkl','rb') as f:
+with open('pipeline.pkl','rb') as f:
     pipeline_saved = pickle.load(f)
 
    
