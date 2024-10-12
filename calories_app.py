@@ -4,7 +4,6 @@ import pickle
 import pandas as pd
 import requests
 import os
-
 from pathlib import Path
 
 # Function to download the file from Google Drive
@@ -18,20 +17,28 @@ def download_file_from_google_drive(file_id, destination):
     else:
         return False
 
-# File ID for pipeline.pkl on Google Drive
-file_id = "1S9kdM8lwRmveLURHayyAFh712AUVWOQp" # Replace with your actual file ID
-destination = "pipeline.pkl"
+# File IDs for pipeline parts on Google Drive
+file_id_part1 = "1bwCloAgIvI9B0jVt2GQIghwaGEDeU3k6"
+file_id_part2 = "1byry_nBLjZeIoTVx5C0GM9k5YWmQHo81"
+destination_part1 = "pipeline_part1.pkl"
+destination_part2 = "pipeline_part2.pkl"
 
-# Download the file
-if download_file_from_google_drive(file_id, destination):
-    st.success("Model file downloaded successfully!")
+# Download the files
+if download_file_from_google_drive(file_id_part1, destination_part1) and download_file_from_google_drive(file_id_part2, destination_part2):
+    st.success("Model files downloaded successfully!")
 else:
-    st.error("Failed to download model file.")
+    st.error("Failed to download model files.")
 
-# Load the model
-file_path = Path(destination)
-with open(file_path, 'rb') as f:
-    pipeline_saved = pickle.load(f)
+# Load the model parts
+file_path_part1 = Path(destination_part1)
+file_path_part2 = Path(destination_part2)
+with open(file_path_part1, 'rb') as f:
+    part1 = pickle.load(f)
+with open(file_path_part2, 'rb') as f:
+    part2 = pickle.load(f)
+
+# Combine the parts
+pipeline_saved = np.concatenate((part1, part2))
 
 # Rest of your Streamlit app
 st.title('Calories Burnt Prediction App Using Machine Learning')
