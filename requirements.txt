@@ -4,3 +4,4 @@ pandas==2.2.2               # Pandas for data manipulation
 numpy==1.26.4               # Numpy for numerical computations
 matplotlib==3.8.4           # Matplotlib for any plotting 
 seaborn==0.13.2             # Seaborn for enhanced visualizations
+xgboost==1.6.1
