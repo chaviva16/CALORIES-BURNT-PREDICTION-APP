@@ -1,5 +1,5 @@
 streamlit==1.32.0           # Streamlit for building the web app
-scikit-learn==1.5.0         # Scikit-learn for RandomForestRegressor and other ML tools
+scikit-learn==1.4.2         # Scikit-learn for RandomForestRegressor and other ML tools
 pandas==2.2.2               # Pandas for data manipulation
 numpy==1.26.4               # Numpy for numerical computations
 matplotlib==3.8.4           # Matplotlib for any plotting 
