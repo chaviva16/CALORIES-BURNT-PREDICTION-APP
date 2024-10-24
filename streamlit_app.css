@@ -1,0 +1,10 @@
+/* Custom CSS to hide the Streamlit Cloud badge */
+.viewerBadge_container__1QSob, .stApp {
+    display: none !important;
+}
+footer {
+    visibility: hidden !important;
+}
+.stGithubIcon {
+    display: none !important;
+}
