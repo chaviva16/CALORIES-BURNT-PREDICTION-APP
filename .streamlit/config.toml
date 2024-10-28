@@ -1,4 +1,5 @@
 [server]
 headless = true
-port = 8501  # You can set this to your desired port
-enableCORS = false  # Disable CORS if you're running Streamlit locally
+port = 8501  # Adjust if needed
+enableCORS = true  # Ensure this is set correctly
+enableXsrfProtection = false  # Disable this for CORS
