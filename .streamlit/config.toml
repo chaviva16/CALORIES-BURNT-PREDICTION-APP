@@ -1,5 +1,4 @@
 [server]
 headless = true
-
-[server.environmentSetup]
-scriptPath = "./setup.sh"
+port = 8501  # You can set this to your desired port
+enableCORS = false  # Disable CORS if you're running Streamlit locally
