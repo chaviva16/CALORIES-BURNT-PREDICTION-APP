@@ -1,5 +1,5 @@
 [server]
 headless = true
-port = 8501  # Adjust if needed
+port = 8502  # Adjust if needed
 enableCORS = true  # Ensure this is set correctly
 enableXsrfProtection = false  # Disable this for CORS
