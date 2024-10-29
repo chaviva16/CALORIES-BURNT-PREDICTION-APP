@@ -1,15 +1,7 @@
 [server]
 headless = true
-port = 8501  # Adjust if needed
-enableCORS = true  # Ensure this is set correctly
-enableXsrfProtection = false  # Disable this for CORS
+port = $PORT
+enableCORS = false
 
-
-#client settings
-[client]
-showErrorDetails = true         # Display detailed error messages in the app (helpful for debugging)
-
-# Logger configuration
-[logger]
-level = "info"                  # Sets the log level; options include 'error', 'warning', 'info', 'debug'
-
+[browser]
+gatherUsageStats = false
