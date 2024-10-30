@@ -1,0 +1,7 @@
+[theme]
+showIcon = false
+
+[server]
+showTitle = false
+hideGitHubButton = true
+
