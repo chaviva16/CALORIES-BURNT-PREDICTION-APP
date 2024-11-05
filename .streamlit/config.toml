@@ -1,7 +1,4 @@
-[theme]
-showIcon = false
-
 [server]
-showTitle = false
-hideGitHubButton = true
+headless = true
+port = 8501
 
